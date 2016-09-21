@@ -1,0 +1,39 @@
+{% extends 'music/base.html' %}
+
+{% block title %}
+  {{ block.super }} - Album Index
+{% endblock %}
+
+{% block content %}
+
+  <div class="row">
+        <h2 class="text-centered">Album Index</h2>
+
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Album</th>
+                    <th>Artist</th>
+                    <th>Genre</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                {% for album in object_list %}
+                    <td>{{ album.name }}</td>
+                    <td>
+                        {% for artist in album.artist.all %}
+                            {{ artist.name }}
+                        {% endfor %}
+                    </td>
+                    <td>
+                        {% for genre in album.genre.all %}
+                            {{ genre.name }} 
+                        {% endfor %}
+                    </td>
+                {% endfor %}
+            </tbody>
+        </table>
+  </div>
+
+{% endblock %}
