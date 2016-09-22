@@ -26,3 +26,15 @@ def artist_list(request):
 
     print(artists)
     return render(request, "tracks/artist_list.html", context)
+
+
+def artist_page(request, id):
+    artist = get_object_or_404(Artist, pk=id)
+
+    context = {
+        "artist": artist,
+    }
+
+
+
+    return render(request, "tracks/artist_page.html", context)
