@@ -20,6 +20,7 @@ class Artist(models.Model):
 
 	def __str__(self):
 		return "{} {}".format(self.first_name, self.last_name)
+
 	
 class Genre(models.Model):
 	genre_name = models.CharField(max_length=200)

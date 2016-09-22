@@ -17,6 +17,6 @@ from django.contrib import admin
 
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
-    url(r'^tracks/', include('tracks.urls', namespace='tracks')),
+    url(r'^', include('tracks.urls', namespace='tracks')),
 
 ]
