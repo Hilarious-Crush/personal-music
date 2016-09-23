@@ -6,18 +6,11 @@
 
 {% block content %}
 
-{{ tracks.artist }}
-  <div class="row">
-        <h2>List of Artists:</h2>
-        {% for x in artists %}
-            <ul>
-                <li>
-                    {{ x.first_name }} {{ x.last_name }}
-                </li>
-            </ul>
-            
-        {% endfor %}
-        
-  </div>
+  <div>
+    <h2>
+      {{artist.first_name}} {{artist.last_name}} 
+    </h2>
+    
+
 
 {% endblock %}

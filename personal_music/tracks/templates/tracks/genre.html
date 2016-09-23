@@ -1,1 +1,24 @@
-print something different
+{% extends 'tracks/base.html' %}
+
+{% block title %}
+  {{ block.super }} - Genre List
+{% endblock %}
+
+{% block content %}
+
+{{ tracks.genres }}
+  
+  <div class="row">
+        <h2>Genres:</h2>
+        {% for x in genres %}
+            <ul>
+                <li>
+                    {{ x.genre_name }} 
+                </li>
+            </ul>
+            
+        {% endfor %}
+        
+  </div>
+
+{% endblock %}

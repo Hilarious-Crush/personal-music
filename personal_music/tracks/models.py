@@ -13,6 +13,12 @@ class Track(models.Model):
 	def __str__(self):
 		return self.name
 
+	def get_artist_names(self):
+		artist_names = [artist.first_name for artist in self.artist.all()]
+		return ", ".join(artist_names)
+
+
+
 class Artist(models.Model):
 	first_name = models.CharField(max_length=200)
 	last_name = models.CharField(max_length=200)

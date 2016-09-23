@@ -13,10 +13,18 @@ def index(request):
 	return render(request, "tracks/index.html", context)
 
 def artist(request):
-    return render(request, "tracks/artist.html", {})
+    return render(request, "tracks/artist.html",  {})
 
 def genre(request):
-    return render(request, "tracks/genre.html", {})
+    
+    genres = Genre.objects.all()
+    context= {
+        "genres": genres
+    }
+
+    print(genres)
+    return render(request, "tracks/genre.html", context)
+
 
 def artist_list(request):
     artists = Artist.objects.all()
