@@ -38,13 +38,11 @@ def artist_list(request):
 
 def artist_page(request, id):
     artist = get_object_or_404(Artist, pk=id)
-
-    track_list = Track.objects.all()
-
+    tracks = artist.track_set()
     context = {
-
+        "tracks": tracks,
         "artist": artist,
-        "track_list": track_list
+
     }
 
     return render(request, "tracks/artist_page.html", context)
