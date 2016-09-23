@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from django.core.urlresolvers import reverse
 from .models import Track, Artist, Album, Genre
 
@@ -39,10 +39,12 @@ def artist_list(request):
 def artist_page(request, id):
     artist = get_object_or_404(Artist, pk=id)
 
+    track_list = Track.objects.all()
+
     context = {
+
         "artist": artist,
+        "track_list": track_list
     }
-
-
 
     return render(request, "tracks/artist_page.html", context)
