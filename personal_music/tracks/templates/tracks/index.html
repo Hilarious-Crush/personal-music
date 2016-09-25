@@ -9,30 +9,8 @@
   <div class="row">
         <h2 class="text-centered">Find Music By</h2>
 
-        <table class="table table-striped">
-            <thead>
-                <tr>
-                    <th><a href="{% url 'tracks:artist' %}">Artist</a></th>  
-                    <th><a href="{% url 'tracks:genre' %}">Genre</a></th>
-                </tr>
-            </thead>
-
-            <tbody>
-                {% for album in object_list %}
-                    <td>{{ album.name }}</td>
-                    <td>
-                        {% for artist in album.artist.all %}
-                            {{ artist.name }}
-                        {% endfor %}
-                    </td>
-                    <td>
-                        {% for genre in album.genre.all %}
-                            {{ genre.name }} 
-                        {% endfor %}
-                    </td>
-                {% endfor %}
-            </tbody>
-        </table>
+        <a href="{% url 'tracks:artist_list' %}">Artist</a><p>
+        <a href="{% url 'tracks:genre_list' %}">Genre</a>
   </div>
 
 {% endblock %}

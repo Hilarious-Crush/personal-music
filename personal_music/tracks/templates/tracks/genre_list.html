@@ -7,12 +7,12 @@
 {% block content %}
 
   <div class="row">
-        <h2>List of Artists:</h2>
-        {% for x in artists %}
+        <h2>List of Genres:</h2>
+        {% for x in genres %}
             <ul>
                 <li>
                   <a href="{{x.get_absolute_url}}">
-                    {{ x.first_name }} {{ x.last_name }}
+                    {{ x.genre_name }}
                   </a>
                 </li>
             </ul>

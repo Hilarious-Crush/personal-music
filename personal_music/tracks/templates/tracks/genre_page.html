@@ -1,0 +1,23 @@
+{% extends 'tracks/base.html' %}
+
+{% block title %}
+  {{ block.super }} - Artist List
+{% endblock %}
+
+{% block content %}
+
+  <div class="row">
+      <div class="main-content">
+      <h2>{{ genre }}</h2>
+      <hr>
+            <h4>List of Songs:</h4>
+            {% for song in tracks %}
+                <ul>
+                    <li>{{song.name}}</li>
+                </ul>
+            {% endfor %}
+            
+      </div>
+  </div>
+
+{% endblock %}
