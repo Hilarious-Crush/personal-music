@@ -1,4 +1,5 @@
 from django.db import models
+from django.core.urlresolvers import reverse
 from datetime import datetime
 
 class Track(models.Model):
@@ -21,12 +22,18 @@ class Artist(models.Model):
 	def __str__(self):
 		return "{} {}".format(self.first_name, self.last_name)
 
+	def get_absolute_url(self):
+		return reverse('tracks:artist_page', kwargs={'id': self.pk})
+
 	
 class Genre(models.Model):
 	genre_name = models.CharField(max_length=200)
 
 	def __str__(self):
 		return self.genre_name
+
+	def get_absolute_url(self):
+		return reverse('tracks:genre_page', kwargs={'id': self.pk})
 
 
 class Album(models.Model):
