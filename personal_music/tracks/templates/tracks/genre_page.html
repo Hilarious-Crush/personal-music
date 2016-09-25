@@ -4,20 +4,42 @@
   {{ block.super }} - Artist List
 {% endblock %}
 
+
 {% block content %}
 
   <div class="row">
-      <div class="main-content">
+    <div class="main-content">
+    {{tracks}}
       <h2>{{ genre }}</h2>
-      <hr>
-            <h4>List of Songs:</h4>
+            <table class="table  table-striped">
+                <tr>
+                  <th>Song Title</th>
+                  <th>Artist</th>
+                  <th>Favorite</th>
+                  <th>Date Added</th>
+                  <th>Duration (sec)</th>
+                </tr>
             {% for song in tracks %}
-                <ul>
-                    <li>{{song.name}}</li>
-                </ul>
+                <tr>
+                  <td>
+                    {{song.name}}
+                  </td>
+                  <td>
+                    {{song.album_name}}
+                  </td>
+                  <td>
+                    {{song.favorite}}
+                  </td>
+                  <td>
+                    {{song.date_added}}
+                  </td>
+                  <td>
+                    {{song.duration}}
+                  </td>
+                </tr>
             {% endfor %}
-            
-      </div>
+            </table>
+    </div>
   </div>
 
 {% endblock %}
