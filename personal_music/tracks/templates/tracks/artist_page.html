@@ -15,6 +15,7 @@
                   <th>Artist</th>
                   <th>Favorite</th>
                   <th>Date Added</th>
+                  <th>Genre</th>
                   <th>Duration (sec)</th>
                 </tr>
             {% for song in tracks %}
@@ -23,7 +24,7 @@
                     {{song.name}}
                   </td>
                   <td>
-                    {{song.artist}}
+                    {{artist}}
                   </td>
                   <td>
                     {{song.favorite}}
@@ -32,7 +33,13 @@
                     {{song.date_added}}
                   </td>
                   <td>
-                    {{song.duration}}
+                    {{song.genre.genre_name}}
+                  </td>
+                  <td>
+                    {{song.get_album_name }}
+                  </td>
+                  <td>
+                    {{song.duration}}  
                   </td>
                 </tr>
             {% endfor %}

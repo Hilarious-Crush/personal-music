@@ -9,7 +9,11 @@ class Track(models.Model):
 	date_added = models.DateTimeField(default=datetime.now, blank=True)
 	duration = models.IntegerField()
 	favorite = models.BooleanField(default=False)
-	genre = models.ManyToManyField('Genre')
+	genre = models.ForeignKey('Genre')
+
+	def get_album_name(self):
+		album_names = [album.album_name for album in self.album.all()]
+		return ", ".join(album_names)
 
 	def __str__(self):
 		return self.name
@@ -28,6 +32,7 @@ class Artist(models.Model):
 	
 class Genre(models.Model):
 	genre_name = models.CharField(max_length=200)
+
 
 	def __str__(self):
 		return self.genre_name

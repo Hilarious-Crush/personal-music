@@ -34,7 +34,6 @@ def artist_page(request, id):
     artist = get_object_or_404(Artist, pk=id)
     tracks = artist.track_set.all()
 
-
     context = {
         "artist": artist,
         "tracks": tracks, 
